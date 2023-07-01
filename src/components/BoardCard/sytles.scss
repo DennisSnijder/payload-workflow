@@ -1,0 +1,8 @@
+@import "payload/scss/index";
+
+.board-card {
+
+  background: var(--theme-elevation-50);
+  padding: base(1.25) $baseline;
+  margin-bottom: 1rem;
+}

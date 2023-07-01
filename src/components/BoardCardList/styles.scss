@@ -1,0 +1,21 @@
+
+.board-card-list {
+  height: 100%;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.board-card-list-inner {
+  height: 100%;
+}
+
+.board-wrapper {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.board-scrollContainer {
+  height: 100%;
+  min-height: 100%;
+}

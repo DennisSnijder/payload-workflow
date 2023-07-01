@@ -1,0 +1,27 @@
+@import "payload/scss/index";
+
+.board-column {
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    min-width: 300px;
+    width: 300px;
+    max-width: 300px;
+    padding: 0;
+    border-right: 1px solid var(--theme-elevation-100);
+  }
+
+  &__header {
+    h4 {
+      padding-left: 1rem;
+
+      span {
+        font-size: 0.9em;
+        padding-left: base(.1);
+        color: var(--color-base-400);
+      }
+    }
+  }
+}

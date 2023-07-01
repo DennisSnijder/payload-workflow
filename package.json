@@ -1,0 +1,31 @@
+{
+  "name": "payload-workflow",
+  "version": "0.1.0",
+  "keywords": [
+    "payload",
+    "cms",
+    "plugin",
+    "typescript",
+    "react",
+    "workflow",
+    "payload-plugin"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/DennisSnijder/payload-workflow",
+  "author": "Dennis Snijder <dennis@snijder.io>",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "payload": "^1.10.5"
+  },
+  "devDependencies": {
+    "@types/react-beautiful-dnd": "^13.1.4",
+    "payload": "^1.10.5",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "lexorank": "^1.0.5",
+    "react-beautiful-dnd": "^13.1.1"
+  }
+}

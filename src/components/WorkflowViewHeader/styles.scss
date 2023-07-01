@@ -1,0 +1,37 @@
+@import "payload/scss/index";
+
+.workflow-view-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  &.is-workflow-view {
+    margin-bottom: $baseline;
+  }
+
+  button {
+
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  div {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    margin: 0 base(.75) 0 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .pill {
+    margin: base(.5) 0 base(.25);
+  }
+}
