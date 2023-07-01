@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import BoardColumn from "./../BoardColumn/BoardColumn";
-import { SelectField } from "payload/types";
+import { CollectionConfig, SelectField } from "payload/types";
 import { LexoRank } from "lexorank";
 import { sortAndFilterDocumentsForStatus } from "../../utils/documents.util";
 
 import './styles.scss';
 
 interface BoardInterface {
-  statusDefinition: SelectField
-  documents: any[],
-  onDocumentWorkflowStatusChange: (documentId: string, workflowStatus: string, orderRank: string) => void,
+  collection: CollectionConfig;
+  statusDefinition: SelectField;
+  documents: any[];
+  onDocumentWorkflowStatusChange: (documentId: string, workflowStatus: string, orderRank: string) => void;
 }
 
 const Board = (props: BoardInterface) => {
-  const {statusDefinition, documents: initDocuments, onDocumentWorkflowStatusChange} = props;
+  const {statusDefinition, documents: initDocuments, onDocumentWorkflowStatusChange, collection} = props;
   const [ documents, setDocuments ] = useState(initDocuments ?? []);
 
   useEffect(() => {
@@ -139,6 +140,7 @@ const Board = (props: BoardInterface) => {
           <div className="scrumboard-body">
             { statusDefinition.options.map((status: any) => (
               <BoardColumn
+                collection={collection}
                 key={ status.value }
                 title={ status.label }
                 identifier={ status.value }

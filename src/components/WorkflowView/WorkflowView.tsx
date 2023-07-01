@@ -8,14 +8,13 @@ import { useTranslation } from 'react-i18next';
 import { SelectField } from "payload/types";
 import ListControls from "payload/dist/admin/components/elements/ListControls";
 import { SelectionProvider } from "payload/dist/admin/components/views/collections/List/SelectionProvider";
-import Board from "../Board/Board";
-
-import './styles.scss';
 import { useConfig } from "payload/dist/admin/components/utilities/Config";
-import usePayloadAPI from "payload/dist/admin/hooks/usePayloadAPI";
 import DefaultList from "payload/dist/admin/components/views/collections/List/Default";
 import WorkflowViewHeader from "../WorkflowViewHeader/WorkflowViewHeader";
 import { requests } from "payload/dist/admin/api";
+import Board from "../Board/Board";
+
+import './styles.scss';
 
 const baseClass = 'scrumboard';
 
@@ -31,25 +30,27 @@ export const WorkflowView = (props: ListProps) => {
       },
       admin: {} = {},
     },
-    handleSortChange,
     handleWhereChange,
-    modifySearchParams,
     hasCreatePermission,
-    resetParams,
     newDocumentURL,
+    modifySearchParams,
+    handleSortChange,
+    resetParams,
+    data
   } = props;
+
   const {i18n} = useTranslation('general');
   const {serverURL, routes: {api}} = useConfig();
 
   const [ showingWorkflow, setShowingWorkflow ] = useState(true);
   const statusDefinition: SelectField = collectionFields.find((field: any) => field?.name === 'workflowStatus') as SelectField;
 
-  const [ {data} ] = usePayloadAPI(`${ serverURL }${ api }/${ collectionSlug }`, {
-    initialParams: {
-      limit: 100,
-      sort: 'workflowOrderRank'
-    }
-  });
+  // const [ {data} ] = usePayloadAPI(`${ serverURL }${ api }/${ collectionSlug }`, {
+  //   initialParams: {
+  //     limit: 100,
+  //     sort: 'workflowOrderRank'
+  //   }
+  // });
 
   const handleDocumentWorkflowStatusChange = (documentId: string, workflowStatus: string, workflowOrderRank: string) => {
     requests.patch(`${ serverURL }${ api }/${ collectionSlug }/${ documentId }`, {
@@ -107,6 +108,7 @@ export const WorkflowView = (props: ListProps) => {
         />
 
         <Board
+          collection={ collection }
           documents={ data.docs }
           statusDefinition={ statusDefinition }
           onDocumentWorkflowStatusChange={ handleDocumentWorkflowStatusChange }

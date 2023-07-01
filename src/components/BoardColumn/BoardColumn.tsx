@@ -2,16 +2,18 @@ import React from 'react'
 import BoardCardList from "./../BoardCardList/BoardCardList";
 
 import './styles.scss';
+import { CollectionConfig } from "payload/types";
 const baseClass = 'board-column';
 
 interface BoardColumProps {
+  collection: CollectionConfig;
   title: string;
   identifier: string;
   contents: any[]
 }
 
 const BoardColumn = (props: BoardColumProps) => {
-  const {title, identifier, contents} = props
+  const {title, identifier, contents, collection} = props
 
   return (
     <div
@@ -24,6 +26,7 @@ const BoardColumn = (props: BoardColumProps) => {
       <BoardCardList
         listId={ identifier }
         contents={ contents }
+        collection={collection}
       />
     </div>
   )

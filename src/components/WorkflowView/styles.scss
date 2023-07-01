@@ -6,6 +6,10 @@
     padding-top: $baseline;
     padding-bottom: $baseline;
   }
+
+  &__search {
+    margin-bottom: $baseline;
+  }
 }
 
 .scrumboard-body {

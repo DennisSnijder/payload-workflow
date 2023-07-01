@@ -2,14 +2,16 @@ import React from 'react'
 import { Draggable, Droppable, DroppableProvided } from 'react-beautiful-dnd'
 import BoardCard from '../BoardCard/BoardCard'
 import './styles.scss';
+import { CollectionConfig } from "payload/types";
 
 interface InnerListProps {
   dropProvided: DroppableProvided,
-  contents: any[]
+  contents: any[];
+  collection: CollectionConfig;
 }
 
 function InnerList(props: InnerListProps) {
-  const {dropProvided, contents, ...rest} = props
+  const {dropProvided, contents, collection, ...rest} = props
 
   return (
     <div className="board-card-list" ref={ dropProvided.innerRef }>
@@ -19,6 +21,7 @@ function InnerList(props: InnerListProps) {
             { dragProvided => (
               <BoardCard
                 data={ item }
+                collection={collection}
                 ref={ dragProvided.innerRef }
                 { ...dragProvided.draggableProps }
                 { ...dragProvided.dragHandleProps }
@@ -36,10 +39,11 @@ function InnerList(props: InnerListProps) {
 interface BoardCardListProps {
   listId: string;
   contents: any[];
+  collection: CollectionConfig;
 }
 
 const BoardCardList = (props: BoardCardListProps) => {
-  const {listId, contents} = props
+  const {listId, contents, collection} = props
 
   return (
     <Droppable
@@ -52,6 +56,7 @@ const BoardCardList = (props: BoardCardListProps) => {
             <InnerList
               contents={ contents }
               dropProvided={ dropProvided }
+              collection={collection}
             />
           </div>
           { dropProvided.placeholder }

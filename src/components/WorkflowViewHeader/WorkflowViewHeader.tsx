@@ -18,7 +18,7 @@ const WorkflowViewHeader = (props: WorkflowViewHeaderProps) => {
   const {pluralLabel, newDocumentURL, hasCreatePermission, isShowingWorkflow, onWorkflowViewSwitch} = props;
   const {t, i18n} = useTranslation('general');
 
-  return <header className={ `${ baseClass } ${isShowingWorkflow ? 'is-workflow-view' : ''}` }>
+  return <header className={ `${ baseClass } ${ isShowingWorkflow ? 'is-workflow-view' : '' }` }>
     <div>
       <h1>{ getTranslation(pluralLabel, i18n) }</h1>
       { hasCreatePermission && (
@@ -28,7 +28,7 @@ const WorkflowViewHeader = (props: WorkflowViewHeaderProps) => {
       ) }
     </div>
 
-    <Button buttonStyle={'secondary'}  size={'small'} onClick={() => onWorkflowViewSwitch()}>
+    <Button buttonStyle={ 'secondary' } size={ 'small' } onClick={ () => onWorkflowViewSwitch() }>
       { isShowingWorkflow && 'Switch to table view' }
       { !isShowingWorkflow && 'Switch to workflow view' }
     </Button>

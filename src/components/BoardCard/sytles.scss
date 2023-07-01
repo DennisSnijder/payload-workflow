@@ -2,6 +2,14 @@
 
 .board-card {
 
+  &__title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
   background: var(--theme-elevation-50);
   padding: base(1.25) $baseline;
   margin-bottom: 1rem;

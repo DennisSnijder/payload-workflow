@@ -40,7 +40,8 @@ export default buildConfig({
           {value: 'in-progress', label: 'In Progress'},
           {value: 'ready-for-review', label: 'Ready for review'},
           {value: 'published', label: 'Published'},
-        ]
+        ],
+        defaultStatus: 'draft'
       }
     })
   ],
