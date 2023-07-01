@@ -32,11 +32,29 @@ const config = buildConfig({
 });
 ```
 
+## Some things to know about using the plugin
+After installing and configuring the plugin as described above, you can visit the Payload admin and select the collection you configured the workflow for.
+Before using the plugin, there are some things to know about how the plugin behaves.
+
+### Differences with the draft/publish system of Payload.
+The workflow plugin introduces a new field called `workflowStatus`. This column does not interact with the draft/publish system of payload whatsoever.
+
+You can "integrate" the workflow status with the draft/publish system of Payload yourself by using [hooks](https://payloadcms.com/docs/hooks/overview).
+For example: Automatically publish the document when the `workflowStatus` has been changed to `published`.
+
+### Workflow view currently only shows documents with `workflowStatus` filled.
+When installed on an existing payload setup, existing document don't have the "workflowStatus" field filled in.
+The `workflowStatus` filed is being used to group the documents in the defined columns on the board.
+
+Want to view documents without a workflow status? Press the "show table view" on the top right to switch back to the default table view.
+In the future there will be a toggleable column showing documents without a `workflowStatus`.
+
 ## Roadmap
-Upcoming Features / Ideas. Have a suggestion for the plugin? Feel free to share!
+Upcoming Features / Ideas. Have a suggestion for the plugin? Feel free to open an issue or contribute!
 
 - [ ] Customize card properties (currently displays `title` and `createdAt`)
 - [ ] Edit relationships directly from the card (e.g., assigning users to a document)
-- [ ] Integration with the draft/publish system of payload (?)
-- [ ] Configurable column for posts without a status (Currently, documents lacking `workflowStatus` aren't visible on the board)
+- [ ] Toggleable column for posts without a workflow status (Currently, documents lacking `workflowStatus` aren't visible on the board)
 - [ ] Lazy loading of column contents when scrolling (Currently, board only shows `defaultLimit` amount of cards)
+- [ ] Permissions for changing statuses
+- [ ] Integration with the draft/publish system of payload (?)
