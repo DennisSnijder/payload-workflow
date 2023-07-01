@@ -12,7 +12,7 @@ $ yarn add payload-workflow
 
 ## Basic usage
 ```typescript
-import { PayloadWorkflow } from 'payload-wokflow';
+import { PayloadWorkflow } from 'payload-workflow';
 
 const config = buildConfig({
   collections: [...],
@@ -33,13 +33,13 @@ const config = buildConfig({
 ```
 
 ## Some things to know about using the plugin
-After installing and configuring the plugin as described above, you can visit the Payload admin and select the collection you configured the workflow for.
-Before using the plugin, there are some things to know about how the plugin behaves.
+There are some things to know about how the plugin behaves in this early stage.
 
 ### Differences with the draft/publish system of Payload.
-The workflow plugin introduces a new field called `workflowStatus`. This column does not interact with the draft/publish system of Payload whatsoever.
+The workflow plugin introduces a new field called `workflowStatus`. This field does not interact with the draft/publish system of Payload whatsoever.
 
-You can "integrate" the workflow status with the draft/publish system of Payload yourself by using [hooks](https://payloadcms.com/docs/hooks/overview).
+You can "integrate" the workflow status with the draft/publish system of Payload yourself by using [Payloads hooks](https://payloadcms.com/docs/hooks/overview).
+
 For example: Automatically publish the document when the `workflowStatus` has been changed to `published`.
 
 ### Workflow view currently only shows documents with `workflowStatus` filled.
