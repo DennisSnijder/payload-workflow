@@ -16,6 +16,9 @@
   "author": "Dennis Snijder <dennis@snijder.io>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build": "tsc"
+  },
   "peerDependencies": {
     "payload": "^1.10.5"
   },
