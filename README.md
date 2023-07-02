@@ -12,12 +12,12 @@ $ yarn add payload-workflow
 
 ## Basic usage
 ```typescript
-import { PayloadWorkflow } from 'payload-workflow';
+import { payloadWorkflow } from 'payload-workflow';
 
 const config = buildConfig({
   collections: [...],
   plugins: [
-    PayloadWorkflow({
+    payloadWorkflow({
       'my-collection-slug': {
         statuses: [
           {value: 'draft', label: 'Draft'},

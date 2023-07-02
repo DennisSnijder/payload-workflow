@@ -64,7 +64,7 @@ const extendCollectionConfig = (
   }
 });
 
-export const PayloadWorkflow = (pluginConfig: Record<string, PluginCollectionConfig>): Plugin =>
+export const payloadWorkflow = (pluginConfig: Record<string, PluginCollectionConfig>): Plugin =>
   (incomingConfig: Config): Config => {
 
     return {
