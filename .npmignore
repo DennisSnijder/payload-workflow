@@ -3,6 +3,8 @@ tsconfig.json
 
 node_modules
 src
+dev
+preview.png
 
 .github
 yarn.lock
