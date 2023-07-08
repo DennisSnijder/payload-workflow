@@ -138,6 +138,14 @@ const Board = (props: BoardInterface) => {
           { ...provided.droppableProps }
         >
           <div className="scrumboard-body">
+
+            <BoardColumn
+              collection={collection}
+              title={'No status'}
+              identifier={'null'} contents={[]}
+              collapsible={true}
+            />
+
             { statusDefinition.options.map((status: any) => (
               <BoardColumn
                 collection={collection}
