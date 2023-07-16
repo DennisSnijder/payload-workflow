@@ -41,7 +41,8 @@ export default buildConfig({
           {value: 'ready-for-review', label: 'Ready for review'},
           {value: 'published', label: 'Published'},
         ],
-        defaultStatus: 'draft'
+        defaultStatus: 'draft',
+        hideNoStatusColumn: false
       }
     })
   ],
