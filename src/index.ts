@@ -7,6 +7,7 @@ import { generateOrderRank } from "./hooks/generateOrderRank";
 export interface PluginCollectionConfig {
   statuses: OptionObject[],
   defaultStatus?: string;
+  hideNoStatusColumn?: boolean;
 }
 
 
@@ -57,7 +58,7 @@ const extendCollectionConfig = (
       },
       components: {
         views: {
-          List: WorkflowView
+          List: WorkflowView(collectionPluginConfig)
         }
       }
     }
