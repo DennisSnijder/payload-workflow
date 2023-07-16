@@ -13,12 +13,13 @@ import DefaultList from "payload/dist/admin/components/views/collections/List/De
 import WorkflowViewHeader from "../WorkflowViewHeader/WorkflowViewHeader";
 import { requests } from "payload/dist/admin/api";
 import Board from "../Board/Board";
+import { PluginCollectionConfig } from "../../index";
 
 import './styles.scss';
 
 const baseClass = 'scrumboard';
 
-export const WorkflowView = (props: ListProps) => {
+export const WorkflowView = (config: PluginCollectionConfig) => (props: ListProps) => {
 
   const {
     collection,
@@ -55,7 +56,7 @@ export const WorkflowView = (props: ListProps) => {
   const handleDocumentWorkflowStatusChange = (documentId: string, workflowStatus: string, workflowOrderRank: string) => {
     requests.patch(`${ serverURL }${ api }/${ collectionSlug }/${ documentId }`, {
       body: JSON.stringify({
-        workflowStatus: workflowStatus,
+        workflowStatus: workflowStatus === 'null' ? null : workflowStatus,
         workflowOrderRank: workflowOrderRank
       }),
       headers: {
@@ -110,6 +111,7 @@ export const WorkflowView = (props: ListProps) => {
         <Board
           collection={ collection }
           documents={ data.docs }
+          hideNoStatusColumn={config.hideNoStatusColumn}
           statusDefinition={ statusDefinition }
           onDocumentWorkflowStatusChange={ handleDocumentWorkflowStatusChange }
         />

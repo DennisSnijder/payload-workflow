@@ -25,7 +25,8 @@ const config = buildConfig({
           {value: 'ready-for-review', label: 'Ready for review'},
           {value: 'published', label: 'Published'},
         ],
-        defaultStatus: 'draft'
+        defaultStatus: 'draft',
+        hideNoStatusColumn: false
       }
     })
   ],
@@ -44,7 +45,7 @@ Upcoming Features / Ideas. Have a suggestion for the plugin? Feel free to open a
 
 - [ ] Customize card properties (currently displays `title` and `createdAt`)
 - [ ] Edit relationships directly from the card (e.g., assigning users to a document)
-- [ ] Toggleable column for posts without a workflow status (Currently, documents lacking `workflowStatus` aren't visible on the board)
+- [X] Toggleable column for posts without a workflow status (Currently, documents lacking `workflowStatus` aren't visible on the board)
 - [ ] Lazy loading of column contents when scrolling (Currently, board only shows `defaultLimit` amount of cards)
 - [ ] Permissions for changing statuses
 - [ ] Allowed transitions between statuses

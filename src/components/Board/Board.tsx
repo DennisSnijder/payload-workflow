@@ -3,19 +3,26 @@ import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import BoardColumn from "./../BoardColumn/BoardColumn";
 import { CollectionConfig, SelectField } from "payload/types";
 import { LexoRank } from "lexorank";
-import { sortAndFilterDocumentsForStatus } from "../../utils/documents.util";
+import { sortAndFilterDocumentsForStatus, sortAndFilterDocumentsWithoutStatus } from "../../utils/documents.util";
 
 import './styles.scss';
 
 interface BoardInterface {
   collection: CollectionConfig;
   statusDefinition: SelectField;
+  hideNoStatusColumn?: boolean;
   documents: any[];
   onDocumentWorkflowStatusChange: (documentId: string, workflowStatus: string, orderRank: string) => void;
 }
 
 const Board = (props: BoardInterface) => {
-  const {statusDefinition, documents: initDocuments, onDocumentWorkflowStatusChange, collection} = props;
+  const {
+    statusDefinition,
+    documents: initDocuments,
+    hideNoStatusColumn,
+    onDocumentWorkflowStatusChange,
+    collection
+  } = props;
   const [ documents, setDocuments ] = useState(initDocuments ?? []);
 
   useEffect(() => {
@@ -138,9 +145,20 @@ const Board = (props: BoardInterface) => {
           { ...provided.droppableProps }
         >
           <div className="scrumboard-body">
+
+            { !hideNoStatusColumn &&
+                <BoardColumn
+                    collection={ collection }
+                    title={ 'No status' }
+                    identifier={ 'null' }
+                    contents={ sortAndFilterDocumentsWithoutStatus(documents) }
+                    collapsible={ true }
+                />
+            }
+
             { statusDefinition.options.map((status: any) => (
               <BoardColumn
-                collection={collection}
+                collection={ collection }
                 key={ status.value }
                 title={ status.label }
                 identifier={ status.value }
