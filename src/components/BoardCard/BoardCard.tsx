@@ -1,11 +1,9 @@
 import React, { forwardRef } from 'react'
 import { CollectionConfig } from "payload/types";
+import { useConfig } from "payload/components/utilities";
 import { formatDate } from "payload/dist/admin/utilities/formatDate";
-import { useConfig } from "payload/dist/admin/components/utilities/Config";
 import { Link } from 'react-router-dom';
-
 import './sytles.scss';
-import RenderTitle from "payload/dist/admin/components/elements/RenderTitle";
 
 const baseClass = 'board-card';
 

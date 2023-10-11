@@ -1,4 +1,4 @@
-@import "payload/scss/index";
+@import "payload/scss";
 
 .workflow-view-header {
   width: 100%;
@@ -12,7 +12,6 @@
   }
 
   button {
-
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -32,6 +31,7 @@
   }
 
   .pill {
-    margin: base(.5) 0 base(.25);
+    position: relative;
+    top: -14px;
   }
 }

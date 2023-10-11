@@ -19,7 +19,9 @@ function InnerList(props: InnerListProps) {
         { contents?.map((item, index) => (
           <Draggable key={ item.id } draggableId={ item.id } index={ index }>
             { dragProvided => (
+              //@ts-ignore
               <BoardCard
+                key={item.id}
                 data={ item }
                 collection={collection}
                 ref={ dragProvided.innerRef }

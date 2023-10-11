@@ -1,20 +1,19 @@
-@import "payload/scss/index";
+@import "payload/scss";
 
 .scrumboard {
 
   &__wrap {
-    padding-top: $baseline;
-    padding-bottom: $baseline;
+    margin-top: base(0.5);
   }
 
   &__search {
-    margin-bottom: $baseline;
   }
 }
 
 .scrumboard-body {
   margin-left: -1rem;
 
+  margin-top: base(1);
   display: flex;
   overflow-x: auto;
   max-width: 100%;

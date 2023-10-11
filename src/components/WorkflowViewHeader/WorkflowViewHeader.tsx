@@ -1,4 +1,4 @@
-import { getTranslation } from "payload/dist/utilities/getTranslation";
+import { getTranslation } from "payload/utilities";
 import { Button, Pill } from "payload/components";
 import { useTranslation } from "react-i18next";
 import React from "react";

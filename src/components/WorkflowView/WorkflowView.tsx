@@ -2,20 +2,19 @@ import React, { useState } from "react"
 import { Props as ListProps } from "payload/dist/admin/components/views/collections/List/types";
 import Meta from "payload/dist/admin/components/utilities/Meta";
 import { Gutter } from "payload/dist/admin/components/elements/Gutter";
-import Eyebrow from "payload/dist/admin/components/elements/Eyebrow";
-import { getTranslation } from "payload/dist/utilities/getTranslation";
 import { useTranslation } from 'react-i18next';
 import { SelectField } from "payload/types";
-import ListControls from "payload/dist/admin/components/elements/ListControls";
-import { SelectionProvider } from "payload/dist/admin/components/views/collections/List/SelectionProvider";
-import { useConfig } from "payload/dist/admin/components/utilities/Config";
-import DefaultList from "payload/dist/admin/components/views/collections/List/Default";
 import WorkflowViewHeader from "../WorkflowViewHeader/WorkflowViewHeader";
-import { requests } from "payload/dist/admin/api";
 import Board from "../Board/Board";
-import { PluginCollectionConfig } from "../../index";
 
 import './styles.scss';
+import { getTranslation } from "payload/utilities";
+import { requests } from "payload/dist/admin/api";
+import { PluginCollectionConfig } from "../../index";
+import { useConfig } from "payload/components/utilities";
+import { SelectionProvider } from "payload/dist/admin/components/views/collections/List/SelectionProvider";
+import ListControls from "payload/dist/admin/components/elements/ListControls";
+import DefaultList from "payload/dist/admin/components/views/collections/List/Default";
 
 const baseClass = 'scrumboard';
 
@@ -37,21 +36,14 @@ export const WorkflowView = (config: PluginCollectionConfig) => (props: ListProp
     modifySearchParams,
     handleSortChange,
     resetParams,
-    data
+    data,
   } = props;
 
   const {i18n} = useTranslation('general');
-  const {serverURL, routes: {api}} = useConfig();
+  const {routes: {api}, serverURL} = useConfig();
 
   const [ showingWorkflow, setShowingWorkflow ] = useState(true);
   const statusDefinition: SelectField = collectionFields.find((field: any) => field?.name === 'workflowStatus') as SelectField;
-
-  // const [ {data} ] = usePayloadAPI(`${ serverURL }${ api }/${ collectionSlug }`, {
-  //   initialParams: {
-  //     limit: 100,
-  //     sort: 'workflowOrderRank'
-  //   }
-  // });
 
   const handleDocumentWorkflowStatusChange = (documentId: string, workflowStatus: string, workflowOrderRank: string) => {
     requests.patch(`${ serverURL }${ api }/${ collectionSlug }/${ documentId }`, {
@@ -88,8 +80,6 @@ export const WorkflowView = (config: PluginCollectionConfig) => (props: ListProp
       docs={ data.docs }
       totalDocs={ data.totalDocs }
     >
-      <Eyebrow/>
-
       <Gutter className={ `${ baseClass }__wrap` }>
 
         <WorkflowViewHeader
@@ -111,7 +101,7 @@ export const WorkflowView = (config: PluginCollectionConfig) => (props: ListProp
         <Board
           collection={ collection }
           documents={ data.docs }
-          hideNoStatusColumn={config.hideNoStatusColumn}
+          hideNoStatusColumn={ config.hideNoStatusColumn }
           statusDefinition={ statusDefinition }
           onDocumentWorkflowStatusChange={ handleDocumentWorkflowStatusChange }
         />

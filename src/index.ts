@@ -1,15 +1,13 @@
 import { Config, Plugin } from "payload/config";
-import { WorkflowView } from "./components/WorkflowView/WorkflowView";
-import { OptionObject } from "payload/dist/fields/config/types";
-import { CollectionConfig } from "payload/types";
+import { CollectionConfig, OptionObject } from "payload/types";
 import { generateOrderRank } from "./hooks/generateOrderRank";
+import { WorkflowView } from "./components/WorkflowView/WorkflowView";
 
 export interface PluginCollectionConfig {
   statuses: OptionObject[],
   defaultStatus?: string;
   hideNoStatusColumn?: boolean;
 }
-
 
 const extendCollectionConfig = (
   pluginConfig: Record<string, PluginCollectionConfig>,

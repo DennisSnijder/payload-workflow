@@ -1,11 +1,11 @@
-import { BeforeChangeHook } from "payload/dist/globals/config/types";
 import { LexoRank } from "lexorank";
+import { CollectionBeforeChangeHook } from "payload/types";
 
 
 /**
  * Generates the initial 'Lexorank'/orderRank based on the last known document in the same status.
  */
-export const generateOrderRank: BeforeChangeHook = async ({data, req}) => {
+export const generateOrderRank: CollectionBeforeChangeHook = async ({data, req}) => {
   const {payload, collection,} = req;
 
   if (!collection || !!data.workflowOrderRank || !data.workflowStatus) {
