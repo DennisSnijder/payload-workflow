@@ -4,7 +4,8 @@ tsconfig.json
 node_modules
 src
 dev
-preview.png
+preview-light.png
+preview-dark.png
 
 .github
 yarn.lock

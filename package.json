@@ -1,7 +1,7 @@
 {
   "name": "payload-workflow",
   "description": "A workflow plugin for Payload CMS",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "keywords": [
     "payload",
     "cms",
@@ -23,13 +23,13 @@
     "build:tsc": "tsc"
   },
   "peerDependencies": {
+    "i18next": "^22.5.0",
     "payload": "^2.0.0",
     "react": "^16.8.5 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.5 || ^17.0.0 || ^18.0.0",
-    "react-router-dom": "^5.0.0",
-    "react-router": "^5.0.0",
     "react-i18next": "^11.18.0",
-    "i18next": "^22.5.0"
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
     "@types/react-beautiful-dnd": "^13.1.4",
