@@ -55,7 +55,9 @@ const extendCollectionConfig = (
         defaultLimit: collection.admin?.pagination?.defaultLimit ?? 100
       },
       components: {
+        ...collection?.admin?.components || {},
         views: {
+          ...collection?.admin?.components?.views || {},
           List: WorkflowView(collectionPluginConfig)
         }
       }
