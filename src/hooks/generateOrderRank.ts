@@ -17,7 +17,7 @@ export const generateOrderRank: CollectionBeforeChangeHook = async ({data, req})
     where: {
       workflowStatus: data.workflowStatus
     },
-    sort: 'workflowOrderRank',
+    sort: '-workflowOrderRank',
     limit: 1,
   });
 
