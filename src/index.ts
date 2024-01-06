@@ -1,7 +1,7 @@
 import { Config, Plugin } from "payload/config";
 import { CollectionConfig, OptionObject } from "payload/types";
-import { generateOrderRank } from "./hooks/generateOrderRank";
-import { WorkflowView } from "./components/WorkflowView/WorkflowView";
+import generateOrderRank from "./hooks/generateOrderRank";
+import WorkflowView from "./components/WorkflowView/WorkflowView";
 
 export interface PluginCollectionConfig {
   statuses: OptionObject[],

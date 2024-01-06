@@ -13,12 +13,12 @@ import { requests } from "payload/dist/admin/api";
 import { PluginCollectionConfig } from "../../index";
 import { useConfig } from "payload/components/utilities";
 import { SelectionProvider } from "payload/dist/admin/components/views/collections/List/SelectionProvider";
-import ListControls from "payload/dist/admin/components/elements/ListControls";
+import { ListControls } from 'payload/dist/admin/components/elements/ListControls'
 import DefaultList from "payload/dist/admin/components/views/collections/List/Default";
 
 const baseClass = 'scrumboard';
 
-export const WorkflowView = (config: PluginCollectionConfig) => (props: ListProps) => {
+const WorkflowView = (config: PluginCollectionConfig) => (props: ListProps) => {
 
   const {
     collection,
@@ -37,6 +37,8 @@ export const WorkflowView = (config: PluginCollectionConfig) => (props: ListProp
     handleSortChange,
     resetParams,
     data,
+    titleField,
+    handleSearchChange
   } = props;
 
   const {i18n} = useTranslation('general');
@@ -91,11 +93,13 @@ export const WorkflowView = (config: PluginCollectionConfig) => (props: ListProp
         />
 
         <ListControls
-          collection={ collection }
-          modifySearchQuery={ modifySearchParams }
-          handleSortChange={ handleSortChange }
-          handleWhereChange={ handleWhereChange }
-          resetParams={ resetParams }
+          collection={collection}
+          handleSearchChange={handleSearchChange}
+          handleSortChange={handleSortChange}
+          handleWhereChange={handleWhereChange}
+          modifySearchQuery={modifySearchParams}
+          resetParams={resetParams}
+          titleField={titleField}
         />
 
         <Board
@@ -109,3 +113,6 @@ export const WorkflowView = (config: PluginCollectionConfig) => (props: ListProp
     </SelectionProvider>
   </div>
 }
+
+
+export default WorkflowView;
