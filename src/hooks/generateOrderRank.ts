@@ -5,7 +5,7 @@ import { CollectionBeforeChangeHook } from "payload/types";
 /**
  * Generates the initial 'Lexorank'/orderRank based on the last known document in the same status.
  */
-export const generateOrderRank: CollectionBeforeChangeHook = async ({data, req}) => {
+const generateOrderRank: CollectionBeforeChangeHook = async ({data, req}) => {
   const {payload, collection,} = req;
 
   if (!collection || !!data.workflowOrderRank || !data.workflowStatus) {
@@ -33,3 +33,6 @@ export const generateOrderRank: CollectionBeforeChangeHook = async ({data, req})
 
   return data;
 }
+
+
+export default generateOrderRank;
