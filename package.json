@@ -1,7 +1,7 @@
 {
   "name": "payload-workflow",
   "description": "A workflow plugin for Payload CMS",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "keywords": [
     "payload",
     "cms",
